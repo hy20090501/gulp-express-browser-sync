@@ -22,7 +22,7 @@ gulp.task('browser-sync', ['express-server'], function() {
 gulp.task('express-server', function() {
     nodemon({
         script: 'app.js',
-        ext: './views/*.ejs html',
+        ext: 'ejs html',
         env: { 'NODE_ENV': 'development' }
     })
 });
