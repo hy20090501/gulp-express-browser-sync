@@ -16,4 +16,4 @@ Then run `gulp` to start
   * The Express server will run at localhost: 3001
   * The BrowserSync will run at localhost: 3002
 
-Browser to localhost:3002 ,go dev!
+Enjoy your local app at http://localhost:30002.
