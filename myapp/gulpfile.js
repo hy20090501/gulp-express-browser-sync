@@ -9,7 +9,7 @@ gulp.task('browser-sync', ['express-server'], function() {
     browserSync.init({
         proxy: "localhost:3000",
         open: false,
-        port: 5000,
+        port: 8090,
     });
     //监听模板变化
     gulp.watch([

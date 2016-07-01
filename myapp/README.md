@@ -13,7 +13,7 @@ npm install --save redux
 
 Then run `gulp` to start
 
-  * The Express server will run at localhost: 3001
-  * The BrowserSync will run at localhost: 3002
+  * The Express server will run at localhost: 8090
+  * The BrowserSync will run at localhost: 3000
 
-Enjoy your local app at http://localhost:30002.
+Enjoy your local app at http://localhost:8090.
