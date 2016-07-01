@@ -7,7 +7,7 @@ To install the stable version:
 
 ```
 cd myapp
-npm install --save redux
+npm install
 ```
 
 
