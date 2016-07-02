@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var employee = require('./routes/employee');
 
 var app = express();
 var gulp = require('gulp');
@@ -27,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.get('/employee/add', employee.employeeAddPage);
+app.post('/employee/add', employee.doEmployeeAdd);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,9 +62,9 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// module.exports = app;
-app.set('port', process.env.PORT || 3000);
+module.exports = app;
+// app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-    //debug('Express server listening on port ' + server.address().port);
-});
+// var server = app.listen(app.get('port'), function() {
+//     //debug('Express server listening on port ' + server.address().port);
+// });
