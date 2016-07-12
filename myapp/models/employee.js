@@ -1,4 +1,4 @@
-var mongodb = require('./mongodb');
+var mongodb = require('../config.js');
 var Schema = mongodb.mongoose.Schema;
 
 var employeeSchema = new Schema({
