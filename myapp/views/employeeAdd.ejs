@@ -10,11 +10,11 @@
 		<textarea id="editor" name="editor" rows="20"></textarea>
 		<button id="saveBtn" type="button">保存</button>
 	</div>
-	<script src="/javascripts/jquery-1.9.1.min.js"></script>
-	<script src="/javascripts/jquery.json-2.4.js"></script>
+	<script src="/js/jquery-1.9.1.min.js"></script>
+	<script src="/js/jquery.json-2.4.js"></script>
 	<script>
 		$(function(){
-			$.getJSON('/javascripts/employee.json', function(data) {
+			$.getJSON('/js/employee.json', function(data) {
 				$('#editor').val($.toJSON(data));
 			});
 			$('#saveBtn').on('click',function(event){
