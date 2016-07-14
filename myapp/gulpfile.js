@@ -35,7 +35,7 @@ gulp.task('less', function() {
 			remove: true	//是否去掉不必要的前缀 默认：true 
 		}))
 		.pipe(cssmin({ compatibility: 'ie7' }))
-		.pipe(gulp.dest('./public/stylesheets'));
+		.pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('reload-after-update', ['less'], function() {
