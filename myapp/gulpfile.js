@@ -47,7 +47,7 @@ gulp.task('reload-after-update', ['less'], function() {
 gulp.task('express-server', function() {
 	nodemon({
 		script: 'app.js',
-		ext: 'ejs html',
+		ext: 'ejs html js',
 		env: { 'NODE_ENV': 'development' },
 		//task: ['']
 	})

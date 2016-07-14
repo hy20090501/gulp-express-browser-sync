@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var employee = require('./routes/employee');
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
+// var employee = require('./routes/employee');
+// var publish_routes = require('./routes/publish');
+var routes_config = require('./routes_config.js');
 
 var app = express();
 var gulp = require('gulp');
@@ -26,10 +28,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.get('/employee/add', employee.employeeAddPage);
-app.post('/employee/add', employee.doEmployeeAdd);
+app.use('/', routes_config);
+// app.use('/', routes);
+// app.use('/publish', publish_routes);
+// app.use('/users', users);
+// app.get('/employee/add', employee.employeeAddPage);
+// app.post('/employee/add', employee.doEmployeeAdd);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

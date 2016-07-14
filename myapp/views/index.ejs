@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>知识管理</title>
-		<link rel='stylesheet' href='/css/common.css' />
+		<link rel='stylesheet' href='/css/main.css' />
 	</head>
 	<body>
 		<div class="navbar">
@@ -23,42 +23,23 @@
 					<a href="javascript:void(0);">精华</a>
 				</div>
 				<div class="topic_list">
-					<div class="cell">
-						<a href="javascript:void(0);" class="pull-left">
-							<img src="/img/test.jpg" alt="" class="author_img">
-						</a>
-						<span class="statistic pull-left"><span>34</span>/<span>890</span></span>
-						<div class="topic_wrapper">
-							<span class="label">置顶</span>
-							<a href="javascript:void(0);" class="title">
-								中国最大的JavaScript开发者大会JSConf China 2016即宁JS 售票啦！
+					<% for(var i=0; i<topicList.length; i++) {%>  
+						<div class="cell">
+							<a href="javascript:void(0);" class="pull-left">
+								<img src="<%=topicList[i].img%>" alt="" class="author_img">
 							</a>
+							<span class="statistic pull-left">
+								<span title="回复数"><%=topicList[i].replyCount%></span>/
+								<span title="点击数"><%=topicList[i].clickCount%></span>
+							</span>
+							<div class="topic_wrapper">
+								<span class="label">置顶</span>
+								<a href="javascript:void(0);" class="title">
+									<%=topicList[i].title%>
+								</a>
+							</div>
 						</div>
-					</div>
-					<div class="cell">
-						<a href="javascript:void(0);" class="pull-left">
-							<img src="/img/test.jpg" alt="" class="author_img">
-						</a>
-						<span class="statistic pull-left"><span>34</span>/<span>890</span></span>
-						<div class="topic_wrapper">
-							<span class="label">置顶</span>
-							<a href="javascript:void(0);" class="title">
-								中国最大的JavaScript开发者大会JSConf China 2016即宁JS 售票啦！
-							</a>
-						</div>
-					</div>
-					<div class="cell">
-						<a href="javascript:void(0);" class="pull-left">
-							<img src="/img/test.jpg" alt="" class="author_img">
-						</a>
-						<span class="statistic pull-left"><span>34</span>/<span>890</span></span>
-						<div class="topic_wrapper">
-							<span class="label">置顶</span>
-							<a href="javascript:void(0);" class="title">
-								中国最大的JavaScript开发者大会JSConf China 2016即宁JS 售票啦！
-							</a>
-						</div>
-					</div>
+					<% } %>  
 				</div>
 			</div>
 			<div class="sidebar">
