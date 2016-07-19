@@ -54,6 +54,14 @@
 					}
 				});
 			});
+
+			$('#updateBtn').click(function(){
+				$.post('/operate/update', {id: 2001}, function(data){
+					if(data.success) {
+						console.log(data);
+					}
+				});
+			});
 		});
 	</script>
 </body>

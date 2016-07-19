@@ -37,6 +37,18 @@ router.post('/operate/findAll', function(req, res, next) {
     });
 });
 
+router.post('/operate/update', function(req, res, next) {
+	var id = req.body.id;
+	employee.findByIdAndUpdate(id, function(err, obj) {
+        if(err) {
+        	console.error(err);
+        	res.send({ 'success': false, msg: "" });
+        } else {
+        	res.send({ 'success': true, obj: obj });
+        }
+    });
+});
+
 module.exports = router;
 
 

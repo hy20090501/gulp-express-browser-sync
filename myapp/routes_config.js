@@ -13,6 +13,6 @@ router.get('/demo', require('./routes/demo.js'));
 router.post('/operate/add', operate);
 router.post('/operate/find', operate);
 router.post('/operate/findAll', operate);
-
+router.post('/operate/update', operate);
 
 module.exports = router;

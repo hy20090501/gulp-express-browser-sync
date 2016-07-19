@@ -64,7 +64,7 @@ employeeDAO.prototype.findById = function(id, callback) {
 employeeDAO.prototype.findAll = function(callback) {
     /**
      *  query all documents in collection employees.
-    **/
+     **/
     // employee.find(function(err, obj) {
     //     //if (err) return console.error(err);
     //     callback(err, obj);
@@ -74,11 +74,25 @@ employeeDAO.prototype.findAll = function(callback) {
      *  filter
      *  If we want to filter our employee by name, Mongoose supports MongoDBs rich querying syntax.
      *   The following code performs a search for all documents with a name property that begins with "员工" and returns the results to the callback.
-    **/
+     **/
     employee.find({ name: /^员工/ }, function(err, obj) {
         //if (err) return console.error(err);
         callback(err, obj);
     });
+}
+
+employeeDAO.prototype.findByIdAndUpdate = function(id, callback) {
+
+    //employee.update({ _id: id }, { $set: { id: 2002 }}, callback);
+
+    // update collections employees where id = id, ??? if employees collection has many documents with same id, now this below code only
+    // can update the first document. why?
+    employee.update({ id: id }, { $set: { name: 'new name' }}, callback);
+
+    //If we do need the document(being updated documents)) ---returned--- in our application
+    // employee.findByIdAndUpdate(id, { $set: { id: 2004 } }, function(err, obj) {
+    //     callback(err, obj);
+    // });
 }
 
 module.exports = new employeeDAO();
