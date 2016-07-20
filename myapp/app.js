@@ -16,6 +16,19 @@ var app = express();
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 
+/**
+ *  关键数据签名加密
+ *
+**/
+var cookie = require('cookie-signature');
+var val = cookie.sign('hello', 'tobiiscooldreeeee');
+console.log(val);
+
+var val = cookie.sign('hello', 'tobiiscool');
+console.log(cookie.unsign(val, 'tobiiscool') === 'hello');
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
