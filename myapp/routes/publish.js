@@ -28,4 +28,45 @@ router.get('/publish', function(req, res, next) {
     res.render('publish_topic', { topicList: topicList });
 });
 
+//如果我们希望限制用户id为数字，可以这样写  “/user/:id(\d+)”
+router.get('/publish/:id', function(req, res) {
+    //console.log(req.params.id);
+    res.send('user ' + req.params.id);
+});
+
+/**
+ * 	some route example
+ *	
+**/
+// "/user/:id"
+// /user/12
+
+// "/users/:id?"
+// /users/5
+// /users
+
+// "/files/*"
+// /files/jquery.js
+// /files/javascripts/jquery.js
+
+// "/file/*.*"
+// /files/jquery.js
+// /files/javascripts/jquery.js
+
+// "/user/:id/:operation?"
+// /user/1
+// /user/1/edit
+
+// "/products.:format"
+// /products.json
+// /products.xml
+
+// "/products.:format?"
+// /products.json
+// /products.xml
+// /products
+
+// "/user/:id.:format?"
+// /user/12
+// /user/12.json
 module.exports = router;

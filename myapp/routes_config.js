@@ -3,7 +3,8 @@ var router = express.Router();
 var operate = require('./routes/operate.js');
 
 router.get('/', require('./routes/index.js'));
-router.get('/publish', require('./routes/publish.js'));
+// router.get('/publish', require('./routes/publish.js'));
+router.get('/publish/:id?', require('./routes/publish.js'));
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
 //     res.render('index', { topicList: topicList });

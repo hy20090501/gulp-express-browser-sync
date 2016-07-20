@@ -28,6 +28,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ *  app.all() fits all request before app.use(*)
+ *
+**/
+app.all('/:param1?/:param2?/:param3?', function(req, res, next){
+  console.log('*****************************');
+  next();
+});
 app.use('/', routes_config);
 // app.use('/', routes);
 // app.use('/publish', publish_routes);
