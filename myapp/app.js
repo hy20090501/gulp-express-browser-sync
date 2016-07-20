@@ -18,6 +18,9 @@ var browserSync = require('browser-sync');
 
 /**
  *  关键数据签名加密
+ *  cookie.sign(param1: param2);
+ *  param1 : important data 需要加密的数据
+ *  param2 : signature key 加密密钥，通常是自己定义的字符串
  *
 **/
 var cookie = require('cookie-signature');
