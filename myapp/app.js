@@ -22,7 +22,7 @@ var browserSync = require('browser-sync');
  *  param1 : important data 需要加密的数据
  *  param2 : signature key 加密密钥，通常是自己定义的字符串
  *
-**/
+ **/
 var cookie = require('cookie-signature');
 var val = cookie.sign('hello', 'tobiiscooldreeeee');
 console.log(val);
@@ -47,10 +47,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  *  app.all() fits all request before app.use(*)
  *
-**/
-app.all('/:param1?/:param2?/:param3?', function(req, res, next){
-  console.log('*****************************');
-  next();
+ **/
+app.all('/:param1?/:param2?/:param3?', function(req, res, next) {
+    console.log('*****************************');
+    next();
 });
 app.use('/', routes_config);
 // app.use('/', routes);

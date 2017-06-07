@@ -10,10 +10,11 @@ router.get('/publish/:id?', require('./routes/publish.js'));
 //     res.render('index', { topicList: topicList });
 // });
 
-router.get('/demo', require('./routes/demo.js'));
-router.post('/operate/add', operate);
-router.post('/operate/find', operate);
-router.post('/operate/findAll', operate);
-router.post('/operate/update', operate);
+// router.get('/demo', require('./routes/demo.js'));
+router.get('/employee/list', require('./routes/list.js'));
+// router.post('/operate/add', operate);
+// router.post('/operate/find', operate);
+// router.post('/operate/findAll', operate);
+// router.post('/operate/update', operate);
 
 module.exports = router;

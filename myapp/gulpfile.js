@@ -9,7 +9,20 @@ var gulp_load_plugins = require('gulp-load-plugins')();
 var less_config = require('./less_config.js');
 var autoprefixer = require('gulp-autoprefixer')
 
-gulp.task('browser-sync', ['express-server', 'less'], function() {
+// gulp.task('browser-sync', ['express-server', 'less'], function() {
+// 	browserSync.init({
+// 		proxy: "localhost:3000",
+// 		open: false,
+// 		port: 8090,
+// 	});
+// 	//监听模板变化
+// 	gulp.watch([
+// 		'./views/**/*.ejs',
+// 		'./routes/**/*.js',
+// 		'./public/**/*.less'
+// 	], ['reload-after-update']);
+// });
+gulp.task('browser-sync', ['less'], function() {
 	browserSync.init({
 		proxy: "localhost:3000",
 		open: false,
@@ -22,7 +35,6 @@ gulp.task('browser-sync', ['express-server', 'less'], function() {
 		'./public/**/*.less'
 	], ['reload-after-update']);
 });
-
 gulp.task('less', function() {
 	return gulp.src(less_config.lessPath.src)
 		//.pipe(gulp_load_plugins.plumber({ errorHandler: gulp_load_plugins.notify.onError('Error: <%= error.message %>') }))

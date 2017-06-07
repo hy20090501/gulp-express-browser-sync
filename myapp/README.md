@@ -17,3 +17,5 @@ Then run `gulp` to start
   * The BrowserSync will run at localhost: 3000
 
 Enjoy your local app at http://localhost:8090.
+
+职工列表：http://localhost:8090/employee/list

@@ -4,13 +4,27 @@ var Schema = mongodb.mongoose.Schema;
 /**
  *  schema
  **/
+var departmentSchema = new Schema({
+    id: String, //部门编号
+    name: String //名称
+});
+
+
+/**
+ *  schemao
+ **/
 var employeeSchema = new Schema({
     id: Number, //工号
     name: String, //姓名
     sex: Number, //性别
     age: Number, //年龄
-    department: String //部门
+    // dep_id: String //部门
+    dep: {
+        type: Schema.Types.ObjectId,
+        ref: 'department'
+    }
 });
+
 
 // Instances of Models are documents. 
 // Documents have many of their own built-in instance methods. 
@@ -25,7 +39,7 @@ employeeSchema.methods.printInfo = function() {
  *  model
  **/
 var employee = mongodb.mongoose.model("employee", employeeSchema);
-
+var department = mongodb.mongoose.model('department', departmentSchema);
 
 var employeeDAO = function() {};
 
@@ -75,8 +89,11 @@ employeeDAO.prototype.findAll = function(callback) {
      *  If we want to filter our employee by name, Mongoose supports MongoDBs rich querying syntax.
      *   The following code performs a search for all documents with a name property that begins with "员工" and returns the results to the callback.
      **/
-    employee.find({ name: /^员工/ }, function(err, obj) {
-        //if (err) return console.error(err);
+    // employee.find({ }, function(err, obj) {
+    //     //if (err) return console.error(err);
+    //     callback(err, obj);
+    // });
+    employee.find({}).populate({ path: 'dep', select: { name: 1 } }).exec(function(err, obj) {
         callback(err, obj);
     });
 }
@@ -87,7 +104,7 @@ employeeDAO.prototype.findByIdAndUpdate = function(id, callback) {
 
     // update collections employees where id = id, ??? if employees collection has many documents with same id, now this below code only
     // can update the first document. why?
-    employee.update({ id: id }, { $set: { name: 'new name' }}, callback);
+    employee.update({ id: id }, { $set: { name: 'new name' } }, callback);
 
     //If we do need the document(being updated documents)) ---returned--- in our application
     // employee.findByIdAndUpdate(id, { $set: { id: 2004 } }, function(err, obj) {
